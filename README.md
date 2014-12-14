@@ -1,8 +1,10 @@
 # DBPedia Information Extraction Framework
 
-## Documentation
+## Project
 
-Documentation is available from the [official DBpedia website](http://dbpedia.org) and the [DBpedia Github wiki](https://github.com/dbpedia/extraction-framework/wiki).
+This fork is created for a project on course Information Retrieval on FIIT STU, academic year 2014/2015.
+ASSIGNMENT: extract specific data from the dumps of Eglish, German and Spanish Wikipedia.
+Data to extract: templates, disambiguation pages, categories, infoboxes
 
 
 ## License
