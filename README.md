@@ -8,13 +8,13 @@ Data to extract: templates, disambiguation pages, categories, infoboxes
   
 ## Setting up the extractor  
   
-Before you start, you need to install tools: Java, Maven 3, Git  
+Before you start, you need to install tools: **Java, Maven 3, Git**  
   
-First download the source code of the extractor from this repository by command: git clone git://github.com/KDPV/extraction-framework.git  
+First download the source code of the extractor from this repository by command: `git clone git://github.com/KDPV/extraction-framework.git`  
   
-Next move the the extraction-framework directory and build and install the extractor by command: mvn clean install  
+Next move the the extraction-framework directory and build and install the extractor by command: `mvn clean install`  
   
-If the installation fails, you may need to delete the row <module>live</module>, from the pom.xml file.
+If the installation fails, you may need to delete the row `<module>live</module>`, from the **pom.xml** file.
 
 
 ## License
