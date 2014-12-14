@@ -14,9 +14,34 @@ First download the source code of the extractor from this repository by command:
   
 Next move the the extraction-framework directory and build and install the extractor by command: `mvn clean install`  
   
-If the installation fails, you may need to delete the row `<module>live</module>`, from the **pom.xml** file.
+If the installation fails, you may need to delete the row `<module>live</module>` from the **pom.xml** file.
+  
+## Configure the downloader
 
+Before you can start extracting, you need to download some dumps from which you will be able to extract.  
+  
+You need to create a **.properties** file with the settings for the downloader. You can find the file used in this project in the **dump** directory. The file is called **download.vi_projekt.properties**  
+  
+At first you need to define the download server and the working directory. All the files will be downloaded there.  
+For example:  
+`base-url=http://dumps.wikimedia.org/`  
+`base-dir=/media/root/vidisk/download`  
+  
+After that you define which files to download. We will download dumps of the english, german and spanish wikipedia:  
+`download=es:pages-articles.xml.bz2`  
+`download=de:pages-articles.xml.bz2`  
+`download=en:pages-articles.xml.bz2`  
+  
+You can choose to unzip files after download or not. If not, you can save space, but the extraction will take more time:  
+`unzip=true`  
 
+At the end you can configure the connection details. If connecting to the server fails, we try five times with pauses of 10 seconds:  
+`retry-max=5`  
+`retry-millis=10000`  
+
+When the configuration is completed, you can start the downloading process. If you are still in the **dump** directory, use this command:  
+`../run download config=download.vi_projekt.properties`  
+  
 ## License
 
 The source code is under the terms of the [GNU General Public License, version 2](http://www.gnu.org/licenses/gpl-2.0.html).
