@@ -46,6 +46,35 @@ At the end you can configure the connection details. If connecting to the server
 When the configuration is completed, you can start the downloading process. If you are still in the **dump** directory, use this command:  
 `../run download config=download.vi_projekt.properties`  
   
+## Configure the extractor  
+  
+After you've downloaded the dumps, you can start extracting data. You need to create another **.properties** files with settings for the extractor.  
+  
+Configuration for this project is placed in the **dump** directory and is called **extraction.vi_projekt.properties**.  
+  
+The first key-value pair in the file is the working directory. Same as for the downloader. The downloaded dumps must be saved here and the extractor will save the extracted data to this directory, too.  
+  
+Example: `base-dir=/media/root/vidisk/download`  
+  
+After that you should define how the source dumps are named. If you've choosed to unzip files after download, add line:  
+`source=pages-articles.xml`  
+If the value for unzip key in the downloader's config file was false, add this line:  
+`source=pages-articles.xml.bz2`  
+  
+You need to set up languages to extract:
+`languages=en,de,es`
+In this project we want to extract data from english (en), german (de) and spanish (es) wikipedia.  
+  
+The most important row in the config file is defining extractors. This is the place, where you tell, which informations to extract from the dumps. We add these extractors:  
+`extractors=.DisambiguationExtractor,.InfoboxExtractor,.TemplateParameterExtractor,.ArticleTemplatesExtractor,.CategoryLabelExtractor`  
+
+You should not change other lines in the config file!
+
+If everything is set up, you can start the extracting. From the **dump** directory use command:  
+`../run extraction extraction.vi_projekt.properties`  
+
+The extraction will run for several hours (on my pc: 2h for spanish, 4h for german, 16h for english). So leave your computer to work and HAVE A GOOD TIME! :)
+  
 ## License
 
 The source code is under the terms of the [GNU General Public License, version 2](http://www.gnu.org/licenses/gpl-2.0.html).
